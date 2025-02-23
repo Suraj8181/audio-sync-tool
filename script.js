@@ -32,3 +32,35 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         alert('An error occurred while processing the files.');
     }
 });
+
+
+document.getElementById("process-btn").addEventListener("click", function () {
+    let audioFile = document.getElementById("audio-upload").files[0];
+    let srtFile = document.getElementById("srt-upload").files[0];
+
+    if (!audioFile || !srtFile) {
+        alert("Please upload both an audio file and a subtitle file.");
+        return;
+    }
+
+    // Simulate progress bar
+    let progressBar = document.getElementById("progress-bar");
+    let progressText = document.getElementById("progress-text");
+    let downloadBtn = document.getElementById("download-btn");
+
+    document.querySelector(".progress-container").style.display = "block";
+    let progress = 0;
+    let interval = setInterval(() => {
+        progress += 10;
+        progressBar.value = progress;
+        progressText.innerText = `Processing... ${progress}%`;
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            progressText.innerText = "Processing Complete!";
+            downloadBtn.style.display = "block";
+            downloadBtn.href = "#"; // Replace with actual audio download link
+            downloadBtn.innerText = "Download Synced Audio";
+        }
+    }, 500);
+});
