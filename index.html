@@ -104,3 +104,36 @@
     <script src="script.js"></script>
 </body>
   </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Sync Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Audio Sync Tool 🎵</h1>
+
+        <!-- File Upload Section -->
+        <div class="upload-area">
+            <input type="file" id="audio-upload" accept="audio/*">
+            <input type="file" id="srt-upload" accept=".srt">
+            <button id="process-btn">Sync Audio</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <p id="progress-text">Waiting for files...</p>
+        </div>
+
+        <!-- Download Button (Hidden Initially) -->
+        <a id="download-btn" style="display:none;" download>Download Synced Audio</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
